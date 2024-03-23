@@ -9,9 +9,13 @@ except:
 
     install("qrcode")
 
-list_of_codes = []
+# ↓ Update with the directory path for the txt file with the list of codes 
+source_location = " "
+# ↓ Update with the directory path to place the QR files
+destination_location = " "
 
-file = open("C:/Users/jacob/OneDrive/Documents/Python/QR Code Generator/input.txt", 'r')
+list_of_codes = []
+file = open(source_location, 'r')
 lines = file.readlines()
 file.close()
 
@@ -24,7 +28,7 @@ num = 1
 
 for x in range(len(list_of_codes)):
     img = qrcode.make(f'https://store.pokemongolive.com/offer-redemption?passcode={list_of_codes[x]}')
-    filename = f'C:/Users/jacob/OneDrive/Documents/Python/QR Code Generator/output/00{num}.png' 
+    filename = f'{destination_location}{num}.png' 
     img.save(filename)
     type(img)
     num += 1
